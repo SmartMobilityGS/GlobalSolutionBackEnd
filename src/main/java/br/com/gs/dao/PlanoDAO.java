@@ -1,5 +1,5 @@
 package br.com.gs.dao;
 
-public class PlanosDAO {
+public class PlanoDAO {
 
 }
