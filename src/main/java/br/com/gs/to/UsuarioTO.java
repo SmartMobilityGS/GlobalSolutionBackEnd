@@ -18,6 +18,35 @@ public class UsuarioTO {
 	 * Construtor padrão
 	 */
 	public UsuarioTO() {}
+	
+	/**
+	 * @param id
+	 * @param nome
+	 * @param sobrenome
+	 * @param cpf
+	 * @param cnh
+	 * @param dataNascimento
+	 * @param telefone
+	 * @param email
+	 * @param senha
+	 * @param tipo
+	 */
+	public UsuarioTO(int id, String nome, String sobrenome, String cpf, String cnh, String dataNascimento, String telefone,
+			String email, String senha, String tipo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.cnh = cnh;
+		this.dataNascimento = dataNascimento;
+		this.telefone = telefone;
+		this.email = email;
+		this.senha = senha;
+		this.tipo = tipo;
+	}
+	
+
 
 	/**
 	 * @param id
@@ -35,7 +64,6 @@ public class UsuarioTO {
 	 */
 	public UsuarioTO(int id, String nome, String sobrenome, String cpf, String cnh, String dataNascimento,
 			String telefone, String email, String senha, String tipo, EnderecoTO enderecoTo, PlanoTO planoTo) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
