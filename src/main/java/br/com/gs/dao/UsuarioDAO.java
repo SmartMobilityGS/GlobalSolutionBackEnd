@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	public void register(UsuarioTO usuario) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
 				"insert into t_charchen_usuario values "
-				+ "(sq_t_charchen_usuario.nextval, ?,?,?,?,to_date(?,'dd/mm/yyyy'),?,?,?,?,?,?)",
+				+ "(sq_t_charchen_usuario.nextval, ?,?,?,?,to_date(?,'dd/mm/yyyy'),?,?,?,?)",
 				new String[] {"id_usuario"});
 		
 		stmt.setString(1, usuario.getNome());
@@ -31,8 +31,7 @@ public class UsuarioDAO {
 		stmt.setString(7, usuario.getEmail());
 		stmt.setString(8, usuario.getSenha());
 		stmt.setString(9, usuario.getTipo());
-		stmt.setInt(10, usuario.getPlanoTo().getId());
-		stmt.setInt(11, usuario.getEnderecoTo().getId());
+
 		
 		stmt.executeUpdate();
 		
