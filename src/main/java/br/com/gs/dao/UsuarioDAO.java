@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.gs.exceptions.IdNotFoundException;
-import br.com.gs.to.EnderecoTO;
-import br.com.gs.to.PlanoTO;
 import br.com.gs.to.UsuarioTO;
 
 public class UsuarioDAO {
@@ -102,7 +100,7 @@ public class UsuarioDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
-	public UsuarioTO consultById(int id) throws SQLException, IdNotFoundException {
+	public UsuarioTO getById(int id) throws SQLException, IdNotFoundException {
 		PreparedStatement stmt = conexao.prepareStatement(
 				"select * from t_charchan_usuario where id_usuario = ?");
 		
@@ -132,7 +130,7 @@ public class UsuarioDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<UsuarioTO> list() throws SQLException{
+	public List<UsuarioTO> getAll() throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_usuario");
 		
 		ResultSet result = stmt.executeQuery();
@@ -146,7 +144,7 @@ public class UsuarioDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<UsuarioTO> listUserByTipo(String tipo) throws SQLException {
+	public List<UsuarioTO> getByTipo(String tipo) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_usuario where ds_tipo = ?");
 		
 		stmt.setString(1, tipo);

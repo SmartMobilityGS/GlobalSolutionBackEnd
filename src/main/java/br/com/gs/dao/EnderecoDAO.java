@@ -57,7 +57,7 @@ public class EnderecoDAO {
 		stmt.setInt(1, id);
 	}
 	
-	public EnderecoTO consultByIdUser(int id) throws SQLException, IdNotFoundException {
+	public EnderecoTO getByIdUser(int id) throws SQLException, IdNotFoundException {
 		PreparedStatement stmt = conexao.prepareStatement("select* from t_charchan_endereco where id_usuario = ?");
 		
 		stmt.setInt(1, id);
@@ -71,7 +71,7 @@ public class EnderecoDAO {
 	}
 	
 	
-	public EnderecoTO consultById(int id) throws SQLException, IdNotFoundException {
+	public EnderecoTO getById(int id) throws SQLException, IdNotFoundException {
 		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_endereco where id_endereco = ?");
 
 		stmt.setInt(1, id);
