@@ -1,5 +1,8 @@
 package br.com.gs.to;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class EnderecoTO {
 	private int id;
 	private String logradouro;
