@@ -29,7 +29,6 @@ public class EnderecoTO {
 	 */
 	public EnderecoTO(int id, String logradouro, String numero, String complemento, String bairro, String cidade,
 			String uf, String cep, UsuarioTO usuarioTo) {
-		super();
 		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
