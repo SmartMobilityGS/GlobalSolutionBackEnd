@@ -38,6 +38,15 @@ public class PlanoTO {
 		this.tiposPlanosEnum = tiposPlanosEnum;
 		this.bateriaTo = bateriaTo;
 	}
+	
+	
+
+	public PlanoTO(int id, String nome, double valor, String tempo) {
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.tempo = tempo;
+	}
 
 	/**
 	 * @return the id
