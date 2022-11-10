@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	
 	public void register(UsuarioTO usuario) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
-				"insert into t_charchen_usuario values "
+				"insert into t_charchan_usuario values "
 				+ "(sq_t_charchen_usuario.nextval, ?,?,?,?,to_date(?,'dd/mm/yyyy'),?,?,?,?)",
 				new String[] {"id_usuario"});
 		
@@ -68,7 +68,7 @@ public class UsuarioDAO {
 	
 	public void delete(int id) throws SQLException, IdNotFoundException {
 		PreparedStatement stmt = conexao.prepareStatement(
-				"delete from t_charchan where id_usuario = ?");
+				"delete from t_charchan_usuario where id_usuario = ?");
 		
 		stmt.setInt(1, id);
 		int qtd = stmt.executeUpdate();
@@ -154,6 +154,11 @@ public class UsuarioDAO {
 		return parseList(result);
 	}
 	
+	/**
+	 * Faz o login do usuário
+	 * @param usuario
+	 * @return
+	 */
 	public UsuarioTO loginDAO(UsuarioTO usuario) {
 		
 		try {
