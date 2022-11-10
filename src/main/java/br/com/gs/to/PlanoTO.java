@@ -38,6 +38,20 @@ public class PlanoTO {
 		this.tiposPlanosEnum = tiposPlanosEnum;
 		this.bateriaTo = bateriaTo;
 	}
+	
+	/**
+	 * Construtor 
+	 * @param id
+	 * @param nome
+	 * @param valor
+	 * @param tempo
+	 */
+	public PlanoTO(int id, String nome, double valor, String tempo) {
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.tempo = tempo;
+	}
 
 	/**
 	 * @return the id
@@ -135,6 +149,11 @@ public class PlanoTO {
 	 */
 	public void setBateriaTo(List<BateriaTO> bateriaTo) {
 		this.bateriaTo = bateriaTo;
+	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + id + "\nTipo do plano: " + nome + "\nTempo: " + tempo + "\nValor: R$" + valor;
 	}
 	
 	
