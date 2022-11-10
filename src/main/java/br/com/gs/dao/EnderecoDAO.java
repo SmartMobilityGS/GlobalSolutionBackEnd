@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.gs.exceptions.IdNotFoundException;
 import br.com.gs.to.EnderecoTO;
@@ -98,5 +100,29 @@ public class EnderecoDAO {
 		
 	}
 	
-
+	private List<EnderecoTO> parseList(ResultSet resultSet) throws SQLException{
+		List<EnderecoTO> lista = new ArrayList<EnderecoTO>();
+		
+		while (resultSet.next()) {
+			EnderecoTO usuario = parse(resultSet);
+			lista.add(usuario);
+		}
+		return lista;
+	}
+	
+	/**
+	 * Retorna todos os endereços cadastrados
+	 * @param resultSet
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<EnderecoTO> getAll() throws SQLException{
+		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_endereco");
+		
+		ResultSet result = stmt.executeQuery();
+		
+		return parseList(result);
+	}
 }
+	
+	
