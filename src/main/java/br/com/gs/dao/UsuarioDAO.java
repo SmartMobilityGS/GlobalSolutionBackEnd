@@ -153,4 +153,35 @@ public class UsuarioDAO {
 		
 		return parseList(result);
 	}
+	
+	public UsuarioTO loginDAO(UsuarioTO usuario) {
+		
+		try {
+			PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_usuario where ds_email = ? and ds_senha = ?");
+			
+			stmt.setString(1, usuario.getEmail());
+			stmt.setString(2, usuario.getSenha());
+			
+			ResultSet result = stmt.executeQuery();
+			
+			UsuarioTO ut = null;
+			
+			while (result.next()) {
+				ut = new UsuarioTO();
+				ut.setEmail(result.getNString("ds_email"));
+				ut.setSenha(result.getNString("ds_senha"));
+			}
+			
+			if(ut != null) {
+				result.close();
+				stmt.close();
+				return ut;
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

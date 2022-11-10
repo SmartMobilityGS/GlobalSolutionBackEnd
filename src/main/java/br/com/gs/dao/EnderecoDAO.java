@@ -96,6 +96,7 @@ public class EnderecoDAO {
 		
 		return new EnderecoTO(id, logradouro, numero, complemento, bairro, cidade, uf, cep, null);
 		
-		
 	}
+	
+
 }
