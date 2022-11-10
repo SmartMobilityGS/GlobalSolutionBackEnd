@@ -64,4 +64,14 @@ public class UsuarioResource {
 		
 		return Response.created(builder.build()).build();
 	}
+	
+	@Post
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response loginUsuario(UsuarioTO usuario) {
+		return Response
+				.status(200)
+				.entity(bo.validacao(usuario))
+				.build();
+	}
 }

@@ -24,5 +24,8 @@ public class UsuarioBO {
 		enderecoBo.register(usuario.getEnderecoTo());
 		conexao.commit();
 	}
-		
+	
+	public UsuarioTO validacao(UsuarioTO usuario) {
+		return usuarioDao.loginDAO(usuario);
+	}
 }

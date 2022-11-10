@@ -24,5 +24,6 @@ public class EnderecoBO {
 	public EnderecoTO getByCodigoUsuario(int id) throws SQLException, IdNotFoundException {
 		return enderecoDao.getById(id);
 	}
+	
 
 }
