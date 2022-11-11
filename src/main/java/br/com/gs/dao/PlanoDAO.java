@@ -20,12 +20,10 @@ public class PlanoDAO {
 	
 	private PlanoTO parse(ResultSet resultSet) throws SQLException {
 
-		int id = resultSet.getInt("id_plano");
-		String nome = resultSet.getString("nm_plano");
-		double valor = resultSet.getDouble("ds_valor");
-		int tempo = resultSet.getInt("nr_tempo");
-
-		return new PlanoTO(id, nome, valor, tempo);
+		return new PlanoTO(resultSet.getInt("id_plano"), 
+						   resultSet.getString("nm_plano"), 
+						   resultSet.getDouble("ds_valor"), 
+						   resultSet.getInt("nr_tempo"));
 	}
 	
 	private List<PlanoTO> parseList(ResultSet resultSet) throws SQLException {

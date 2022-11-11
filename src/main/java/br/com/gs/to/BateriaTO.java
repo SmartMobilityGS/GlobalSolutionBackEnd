@@ -2,7 +2,7 @@ package br.com.gs.to;
 
 public class BateriaTO {
 	private int id;
-	private String name;
+	private String nome;
 	private String densidadeEnergetica;
 	private String densidadePotencia;
 	private String cicloDeVida;
@@ -29,12 +29,11 @@ public class BateriaTO {
 	 * @param tempoDeCargaRapida
 	 * @param planoTo
 	 */
-	public BateriaTO(int id, String name, String densidadeEnergetica, String densidadePotencia, String cicloDeVida,
+	public BateriaTO(int id, String nome, String densidadeEnergetica, String densidadePotencia, String cicloDeVida,
 			String eficienciaDeCargaEDescarga, String taxaDeDescargaPropria, String toleranciaASobrecarga,
 			String tempoDeCargaRapida, PlanoTO planoTo) {
-		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.densidadeEnergetica = densidadeEnergetica;
 		this.densidadePotencia = densidadePotencia;
 		this.cicloDeVida = cicloDeVida;
@@ -43,6 +42,20 @@ public class BateriaTO {
 		this.toleranciaASobrecarga = toleranciaASobrecarga;
 		this.tempoDeCargaRapida = tempoDeCargaRapida;
 		this.planoTo = planoTo;
+	}	
+
+	public BateriaTO(int id, String nome, String densidadeEnergetica, String densidadePotencia, String cicloDeVida,
+			String eficienciaDeCargaEDescarga, String taxaDeDescargaPropria, String toleranciaASobrecarga,
+			String tempoDeCargaRapida) {
+		this.id = id;
+		this.nome = nome;
+		this.densidadeEnergetica = densidadeEnergetica;
+		this.densidadePotencia = densidadePotencia;
+		this.cicloDeVida = cicloDeVida;
+		this.eficienciaDeCargaEDescarga = eficienciaDeCargaEDescarga;
+		this.taxaDeDescargaPropria = taxaDeDescargaPropria;
+		this.toleranciaASobrecarga = toleranciaASobrecarga;
+		this.tempoDeCargaRapida = tempoDeCargaRapida;
 	}
 
 	/**
@@ -62,15 +75,15 @@ public class BateriaTO {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.nome = nome;
 	}
 
 	/**
