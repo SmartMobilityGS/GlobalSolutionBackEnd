@@ -17,7 +17,7 @@ public class EnderecoDAO {
 	
 	public void register(EnderecoTO endereco) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
-				"insert into T_charchen_endereco (id_endereco, ds_logradouro, nr_numero, ds_complemento +"
+				"insert into t_charchan_endereco (id_endereco, ds_logradouro, nr_numero, ds_complemento +"
 				+ "ds_bairro, ds_cidade, sg_uf, nr_cep, id_usuario) "
 				+ "values (sq_t_charchen_endereco.nextval, ?,?,?,?,?,?,?,?)"); 
 		
@@ -35,7 +35,7 @@ public class EnderecoDAO {
 	
 	public void update(EnderecoTO endereco, int id) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
-				"update t_charchan_usuario set ds_logradouro = ?, nr_endereco = ?, ds_complemento = ?, "
+				"update t_charchan_endereco set ds_logradouro = ?, nr_endereco = ?, ds_complemento = ?, "
 				+ "ds_bairro = ?, ds_cidade = ?, sg_uf = ?, nr_cep = ? where id_usuario = ?");
 		
 		stmt.setString(1, endereco.getLogradouro());
@@ -52,7 +52,7 @@ public class EnderecoDAO {
 	
 	public void delete(int id) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
-				"delete from t_charchan where id_usuario = ?");
+				"delete from t_charchan_endereco where id_usuario = ?");
 		
 		stmt.setInt(1, id);
 	}

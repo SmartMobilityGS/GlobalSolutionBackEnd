@@ -23,7 +23,7 @@ public class PlanoDAO {
 		int id = resultSet.getInt("id_plano");
 		String nome = resultSet.getString("nm_plano");
 		double valor = resultSet.getDouble("ds_valor");
-		String tempo = resultSet.getString("nr_tempo");
+		int tempo = resultSet.getInt("nr_tempo");
 
 		return new PlanoTO(id, nome, valor, tempo);
 	}
@@ -38,13 +38,13 @@ public class PlanoDAO {
 	
 	public void cadastrar(PlanoTO plano) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(
-		"insert into t_xxx_plano values " 
-		+ "(sq_t_xxx_plano.nextval, ?, ?, ?)",
+		"insert into t_charchan_plano values " 
+		+ "(sq_t_charchan_plano.nextval, ?, ?, ?)",
 				new String[] { "id_plano" });
 
 		stmt.setString(1, plano.getNome()); 
 		stmt.setDouble(2, plano.getValor());
-		stmt.setString(3, plano.getTempo());
+		stmt.setInt(3, plano.getTempo());
 
 		stmt.executeUpdate();
 
@@ -54,24 +54,23 @@ public class PlanoDAO {
 	}
 	
 	public List<PlanoTO> getAll() throws SQLException {
-		PreparedStatement stmt = conexao.prepareStatement("select * from t_xxx_plano");
+		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_plano");
 		
 		return parseList(stmt.executeQuery());
 	}
 	
 	public List<PlanoTO> getByName(String nome) throws SQLException {
-		PreparedStatement stmt = conexao.prepareStatement("select * from t_xxx_plano where nm_plano like ?");
+		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_plano where nm_plano like ?");
 
 		stmt.setString(1, "%" + nome + "%");
 		return parseList(stmt.executeQuery());
 	}
 	
 	public PlanoTO getById(int id) throws SQLException, IdNotFoundException {
-		PreparedStatement stmt = conexao.prepareStatement("select * from t_xxx_plano where id_plano = ?");
+		PreparedStatement stmt = conexao.prepareStatement("select * from t_charchan_plano where id_plano = ?");
 
 		stmt.setInt(1, id);
 
-		// Verificar se encontrou um filme
 		if (!stmt.executeQuery().next()) {
 			throw new IdNotFoundException("Plano nao encontrado");
 		}
@@ -79,20 +78,19 @@ public class PlanoDAO {
 	}
 	
 	public void update(PlanoTO plano) throws SQLException, IdNotFoundException {
-		PreparedStatement stmt = conexao.prepareStatement("update t_xxx_plano set nm_plano = ?, ds_valor = ?,"
+		PreparedStatement stmt = conexao.prepareStatement("update t_charchan_plano set nm_plano = ?, ds_valor = ?,"
 				+ " nr_tempo = ? where id_plano = ?");
 
-		// Setar os valores na query
 		stmt.setString(1, plano.getNome()); 
 		stmt.setDouble(2, plano.getValor());
-		stmt.setString(3, plano.getTempo());
+		stmt.setInt(3, plano.getTempo());
 
 		if (stmt.executeUpdate() == 0)
 			throw new IdNotFoundException("Plano nao encontrado para atualizacao");
 	}
 	
 	public void deletar(int id) throws SQLException, IdNotFoundException {
-		PreparedStatement stmt = conexao.prepareStatement("delete from t_xxx_plano where id_plano = ?");
+		PreparedStatement stmt = conexao.prepareStatement("delete from t_charchan_plano where id_plano = ?");
 
 		stmt.setInt(1, id);
 

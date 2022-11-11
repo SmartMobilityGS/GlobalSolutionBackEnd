@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -41,14 +42,16 @@ public class UsuarioResource {
 	}
 	
 	@GET
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioTO getById(int id) throws SQLException, IdNotFoundException{
+	public UsuarioTO getById(@PathParam("id") int id) throws SQLException, IdNotFoundException{
 		return dao.getById(id);
 	}
 	
 	@GET
+	@Path("/{tipo}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<UsuarioTO> getByTipo(String tipo) throws SQLException, IdNotFoundException{
+	public List<UsuarioTO> getByTipo(@PathParam("tipo") String tipo) throws SQLException, IdNotFoundException{
 		return dao.getByTipo(tipo);
 	}
 	

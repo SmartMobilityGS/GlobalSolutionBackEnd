@@ -8,7 +8,7 @@ public class PlanoTO {
 	private int id;
 	private String nome;
 	private double valor;
-	private String tempo;
+	private int tempo;
 	private UsuarioTO usuarioTo;
 	private TiposPlanosEnum tiposPlanosEnum;
 	private List<BateriaTO> bateriaTo;
@@ -27,7 +27,7 @@ public class PlanoTO {
 	 * @param tiposPlanosEnum
 	 * @param bateriaTo
 	 */
-	public PlanoTO(int id, String nome, double valor, String tempo, UsuarioTO usuarioTo,
+	public PlanoTO(int id, String nome, double valor, int tempo, UsuarioTO usuarioTo,
 			TiposPlanosEnum tiposPlanosEnum, List<BateriaTO> bateriaTo) {
 		super();
 		this.id = id;
@@ -41,7 +41,7 @@ public class PlanoTO {
 	
 	
 
-	public PlanoTO(int id, String nome, double valor, String tempo) {
+	public PlanoTO(int id, String nome, double valor, int tempo) {
 		this.id = id;
 		this.nome = nome;
 		this.valor = valor;
@@ -93,14 +93,14 @@ public class PlanoTO {
 	/**
 	 * @return the tempo
 	 */
-	public String getTempo() {
+	public int getTempo() {
 		return tempo;
 	}
 
 	/**
 	 * @param tempo the tempo to set
 	 */
-	public void setTempo(String tempo) {
+	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
 
