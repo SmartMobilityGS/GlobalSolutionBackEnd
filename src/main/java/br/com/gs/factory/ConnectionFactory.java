@@ -8,7 +8,7 @@ public class ConnectionFactory {
 private static Connection conexao;
 	
 	/**
-	 * Obtem uma conexao com o banco de dados
+	 * Obtém uma conexao com o banco de dados
 	 * @return Connection conexao com o banco de dados
 	 */
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{

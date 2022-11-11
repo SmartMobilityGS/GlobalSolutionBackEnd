@@ -25,7 +25,7 @@ public class PlanoDAO {
 		ps.setString(3, pto.getTempo());
 		ps.executeUpdate();
 		ps.close();
-		conn.close();
+
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class PlanoDAO {
 		}
 		ps.close();
 		rs.close();
-		conn.close();
+
 		return plano;
 	}
 	
@@ -71,7 +71,7 @@ public class PlanoDAO {
 		}
 		ps.close();
 		rs.close();
-		conn.close();
+
 		return planos;
 	}
 	
@@ -85,7 +85,6 @@ public class PlanoDAO {
 		ps.setInt(4, idPlano);
 		ps.executeUpdate();
 		ps.close();
-		conn.close();
 	}
 	
 	public void delete(int idPlano) throws SQLException {
@@ -94,7 +93,6 @@ public class PlanoDAO {
 		ps.setInt(1, idPlano);
 		ps.executeUpdate();
 		ps.close();
-		conn.close();
 	}
 	
 
