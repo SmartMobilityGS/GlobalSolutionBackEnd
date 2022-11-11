@@ -2,8 +2,11 @@ package br.com.gs.to;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import br.com.gs.enums.TiposPlanosEnum;
 
+@XmlRootElement
 public class PlanoTO {
 	private int id;
 	private String nome;

@@ -42,16 +42,16 @@ public class UsuarioResource {
 	}
 	
 	@GET
-	@Path("/{id}")
+	//@Path("/usuario/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioTO getById(@PathParam("id") int id) throws SQLException, IdNotFoundException{
+	public UsuarioTO getById(/*@PathParam("id")*/ int id) throws SQLException, IdNotFoundException{
 		return dao.getById(id);
 	}
 	
 	@GET
-	@Path("/{tipo}")
+	//@Path("/usuario/{tipo}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<UsuarioTO> getByTipo(@PathParam("tipo") String tipo) throws SQLException, IdNotFoundException{
+	public List<UsuarioTO> getByTipo(/*@PathParam("tipo")*/ String tipo) throws SQLException{
 		return dao.getByTipo(tipo);
 	}
 	
