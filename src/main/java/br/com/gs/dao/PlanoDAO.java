@@ -18,7 +18,7 @@ public class PlanoDAO {
 	}
 	
 	public void insert(PlanoTO pto) throws SQLException {
-		String sql = "INSERT INTO T_XXX_PLANO (id_plano, nm_plano, ds_valor, nr_tempo) VALUES (SQ_T_XXX_PLANO.nextval,?,?,?)";
+		String sql = "INSERT INTO T_charchain_PLANO (id_plano, nm_plano, ds_valor, nr_tempo) VALUES (SQ_T_XXX_PLANO.nextval,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, pto.getNome());
 		ps.setDouble(2, pto.getValor());
@@ -36,7 +36,7 @@ public class PlanoDAO {
 	 */
 	public PlanoTO select(int id) throws SQLException{
 		PlanoTO plano = new PlanoTO();
-		String sql = "SELECT * FROM T_XXX_PLANO WHERE id_plano = ?";
+		String sql = "SELECT * FROM T_charchain_PLANO WHERE id_plano = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, id);
 		ResultSet rs = ps.executeQuery();
@@ -59,7 +59,7 @@ public class PlanoDAO {
 	 */
 	public List<PlanoTO> select() throws SQLException {
 		List<PlanoTO> planos = new ArrayList<PlanoTO>();
-		String sql = "SELECT * FROM T_XXX_PLANO";
+		String sql = "SELECT * FROM T_charchain_PLANO";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
@@ -77,7 +77,7 @@ public class PlanoDAO {
 	
 	
 	public void update(PlanoTO pto, int idPlano) throws SQLException {
-		String sql = "UPDATE T_XXX_PLANO SET nm_plano=?, ds_valor=?, nr_tempo=? where id_plano=?";
+		String sql = "UPDATE T_charchain_PLANO SET nm_plano=?, ds_valor=?, nr_tempo=? where id_plano=?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, pto.getNome());
 		ps.setDouble(2, pto.getValor());
@@ -88,7 +88,7 @@ public class PlanoDAO {
 	}
 	
 	public void delete(int idPlano) throws SQLException {
-		String sql = "DELETE FROM T_XXX_PLANO WHERE id_plano=?";
+		String sql = "DELETE FROM T_charchain_PLANO WHERE id_plano=?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, idPlano);
 		ps.executeUpdate();
