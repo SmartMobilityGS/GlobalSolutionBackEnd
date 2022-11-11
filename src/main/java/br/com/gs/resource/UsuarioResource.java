@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
@@ -18,7 +19,7 @@ import br.com.gs.dao.UsuarioDAO;
 import br.com.gs.exceptions.IdNotFoundException;
 import br.com.gs.factory.ConnectionFactory;
 import br.com.gs.to.UsuarioTO;
-import oracle.jdbc.proxy.annotation.Post;
+
 
 @Path("/usuario")
 public class UsuarioResource {
@@ -41,18 +42,20 @@ public class UsuarioResource {
 	}
 	
 	@GET
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public UsuarioTO getById(int id) throws SQLException, IdNotFoundException{
 		return dao.getById(id);
 	}
 	
 	@GET
+	@Path("/{tipo}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<UsuarioTO> getByTipo(String tipo) throws SQLException, IdNotFoundException{
 		return dao.getByTipo(tipo);
 	}
 	
-	@Post
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response register(UsuarioTO usuario, @Context UriInfo uriInfo) throws SQLException {
 		
@@ -65,7 +68,7 @@ public class UsuarioResource {
 		return Response.created(builder.build()).build();
 	}
 	
-	@Post
+	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response loginUsuario(UsuarioTO usuario) {
